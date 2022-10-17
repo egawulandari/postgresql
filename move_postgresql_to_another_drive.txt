@@ -1,0 +1,13 @@
+HOW TO MOVE POSTGRESQL FROM OTHER DISK
+=======================================
+1. First, stop your postgresql service
+- sudo service postgresql stop
+2. Find directory /var/lib/postgresql/7.4/main in new drive and remove this directory
+-sudo rm -rf /var/lib/postgresql/7.4/main
+3. Find same directory in old drive
+4. Copy directory from old drive to directory in new drive
+5. Give permission
+- sudo chown -R postgres:postgres /var/lib/postgresql/12/main
+- sudo chmod -R u+rwx,g-rwx,o-rwx /var/lib/postgresql/12/main
+6. Then, start your postgresql service again
+- sudo service postgresql start

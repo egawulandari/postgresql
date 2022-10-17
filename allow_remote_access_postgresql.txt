@@ -1,0 +1,14 @@
+HOW TO ALLOW REMOTE ACCESS TO POSTGRESQL DATABASE
+=================================================
+1. find postgresql.conf located at /etc/postgresql/7.4/main
+2. open file and set the parameter
+- listen_addresses = '*'
+3. find pg_hba.conf located are same with postgresql.conf and set another ip that can remote access to this postgresql
+- host all root xxx.xxx.x.xx/xx md5
+4. Make sure you activated your firewall
+- sudo ufw status
+- sudo ufw enable 
+5. Dont forget to allow port postgresql 
+- sudo ufw allow 5432
+- sudo ufw status
+6. sudo service postgresql restart
